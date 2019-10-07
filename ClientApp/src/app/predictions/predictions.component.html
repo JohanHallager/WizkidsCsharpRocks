@@ -1,0 +1,30 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+        <label for="searchTerm$">Predictions</label>
+        <textarea (keyup)="searchTerm$.next($event.target.value)" class="form-control" id="searchTerm$" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p>Sqlite</p>
+      <ul class="list-group" *ngIf="dictionaryApiResults">
+        <li *ngFor="let result of dictionaryApiResults | slice:0:9" class="list-group-item">{{result.value}}</li>
+      </ul>
+    </div>
+    <div class="col-sm">
+      <p>Wizkids Api</p>
+      <ul class="list-group" *ngIf="WizkidsApiResults">
+        <li *ngFor="let result of WizkidsApiResults | slice:0:9" class="list-group-item">{{result.value}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
